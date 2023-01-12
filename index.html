@@ -3,19 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>
-            ETCH-MI-SKETCH
+            etch-mi-sketch
         </title>
         <link rel="stylesheet" href="./style.css">
         <script src="./script.js"></script>
     </head>
     <body>
-        <div class="title">ETCH-MI-SKETCH</div>
+        <div class="title">etch-mi-sketch</div>
         <div class="canvas">canvas</div>
-        <div class="toolbox">Toolbox</div>
+        <div class="toolbox">
+            <input type="color" id="colorSelector" value="#f55151">
+            <input type="range" id="gridSelector" min="8" max="128" value="32">
+            <div class="t-buttons">
+                <button>draw</button>
+                <button>erase</button>
+                <button>clear</button>
+            </div>
+        </div>
         <div class="footer">
-            <span>Andres Gutierrez</span>
+            <span>andres gutierrez</span>
             <span>Ⓒ</span>
-            <span><a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a></span>
+            <span><a href="https://www.theodinproject.com/" target="_blank">the odin project</a></span>
         </div>
     </body>
 </html> 

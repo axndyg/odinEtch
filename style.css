@@ -18,20 +18,26 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
 
 }
 
 .title { 
-    font-size: 60px;
-    margin-top: 30px;
+    font-size: 45px;
+    margin-top: 20px;
     color: rgb(67, 64, 64);
 }
+
+    .title:hover { 
+        transform: scale(1.02);
+        transform: rotate(.5turn)
+    }
 
 .canvas {
     min-width: 425px;
     min-height: 425px;
     color: rgb(67, 64, 64);
+    box-shadow: 1px 0px 16px 7px rgba(0,0,0,0.2);
 
     border: 10px solid;
     border-image: url('./graphics/frame.jpeg') 100 round;
@@ -39,22 +45,41 @@ body {
   }
 
 .toolbox { 
-    flex: 1;
+    margin-bottom: auto;
     min-width: 425px;
-    padding: 10px;
+    min-height: 80px;
+    padding: 0px 20px;
+    gap: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     background:rgb(42, 43, 42, 0.908);
     border-radius: 10px;
    
 }
 
+    #colorSelector { 
+      
+      
+    }
+
+    #gridSelector {
+        
+    }
+
+    .t-buttons { 
+        
+    }
+
 .footer { 
-    font-weight:500;
-    font-size: 18px;
+    font-weight: 500;
+    font-size: 14px;
     display: flex;
     justify-content: center;
     margin-bottom: 25px;
-    padding: 10px;
+    padding: 8px;
         
     background:rgba(42, 43, 42, 0.908);
     border-radius: 10px;
@@ -74,4 +99,19 @@ a {
 
 span { 
     margin: 0 10px;
+}
+
+
+button { 
+    border: 2px solid black;
+    border-radius: 12px;
+    height: 40px;
+    width: 80px;
+   
+}
+
+button:focus { 
+    color: whitesmoke;
+    background-color: black;
+    border: 2px solid rgba(246, 235, 235, 0.938);
 }
