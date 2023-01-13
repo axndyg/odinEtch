@@ -6,23 +6,28 @@
             etch-mi-sketch
         </title>
         <link rel="stylesheet" href="./style.css">
-        <script src="./script.js"></script>
+        <script src="./script.js" defer></script>
     </head>
     <body>
         <div class="title">etch-mi-sketch</div>
-        <div class="canvas">canvas</div>
+        <div class="canvas">
+            
+        </div>
         <div class="toolbox">
-            <input type="color" id="colorSelector" value="#f55151">
-            <input type="range" id="gridSelector" min="8" max="128" value="32">
+            <input type="color" id="colorSelector" value="#00b800">
+            <div class="gridSettings">
+                <div class="g-text">grid size: 16 x 16</div>
+                <input type="range" id="gridSelector" class="slider" min="8" max="32" value="16">
+            </div>
             <div class="t-buttons">
-                <button>draw</button>
-                <button>erase</button>
-                <button>clear</button>
+                <button class="b-draw">draw</button>
+                <button class="b-erase">erase</button>
+                <button class="b-clear">clear</button>
             </div>
         </div>
         <div class="footer">
             <span>andres gutierrez</span>
-            <span>Ⓒ</span>
+            <span>©</span>
             <span><a href="https://www.theodinproject.com/" target="_blank">the odin project</a></span>
         </div>
     </body>

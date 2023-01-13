@@ -34,8 +34,17 @@ body {
     }
 
 .canvas {
-    min-width: 425px;
-    min-height: 425px;
+    display:flex;
+    flex-wrap: wrap;
+    flex: 0 1 auto;
+    row-gap: 0px;
+    gap: 0px;
+    
+    min-width: 435px;
+        max-width: 435px;
+    min-height: 435px;
+        max-height: 435px;
+        
     color: rgb(67, 64, 64);
     box-shadow: 1px 0px 16px 7px rgba(0,0,0,0.2);
 
@@ -44,12 +53,17 @@ body {
     background-color: rgba(246, 235, 235, 0.938);
   }
 
+    .gridBox { 
+        border: .1px solid rgba(201, 199, 199, 0.417);
+        box-sizing: border-box;
+    }
+
 .toolbox { 
     margin-bottom: auto;
     min-width: 425px;
     min-height: 80px;
     padding: 0px 20px;
-    gap: 10px;
+    gap: 20px;
 
     display: flex;
     justify-content: space-between;
@@ -61,12 +75,44 @@ body {
 }
 
     #colorSelector { 
-      
-      
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 40px;
     }
 
+        input#colorSelector::-webkit-color-swatch-wrapper {
+            padding: 0px;
+        }
+
+        input#colorSelector::-webkit-color-swatch { 
+            border-radius: 40px;
+        }
+
     #gridSelector {
-        
+      -webkit-appearance: none;
+      background-color: white;
+
+    }
+
+        .slider { 
+           border-radius: 4px;
+           height: 9px;
+        }
+
+        .slider::-webkit-slider-thumb { 
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 10px;
+            overflow: visible;
+            cursor: pointer;
+            border: 2px solid black;
+            background-color: whitesmoke;
+        }
+
+    .g-text { 
+        font-size: small;
     }
 
     .t-buttons { 
@@ -114,4 +160,8 @@ button:focus {
     color: whitesmoke;
     background-color: black;
     border: 2px solid rgba(246, 235, 235, 0.938);
+}
+
+div { 
+   overflow: hidden;
 }
