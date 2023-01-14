@@ -45,6 +45,9 @@ const btnErase = document.querySelector('#b-erase');
 const btnClear = document.querySelector('#b-clear');
 
 // function parameters 
+let paintMode = false;
+    document.body.onmousedown = () => (paintMode = true);
+    document.body.onmouseup = () => (paintMode = false);
 let brush = colorSelector.value;
 let lastGrid = gridSelector.value;
 let rowSelect = gridSelector.value;
@@ -62,11 +65,16 @@ function makeGrid(rows, cols) {
         box.classList.add("gridBox");
         box.style['width'] = `${width}%`;
         box.style['height'] = `${height}%`;
-       
+        box.addEventListener('mousedown', (e) => {
+            box.style['background-color'] = brush;
+        });
+        box.addEventListener('mouseover', (e) => {
+            if (!paintMode) return;
+            box.style['background-color'] = brush;
+        });
         canvas.appendChild(box);
     }
-
-    
+  
 }
 
 function slideChange(value) { 
@@ -82,7 +90,6 @@ function slideChange(value) {
 
 function clearGrid() { 
     const grid = document.querySelectorAll(".gridBox");
-
     grid.forEach(box => { 
         box.style['background-color'] = CANVAS_COLOR;
     });

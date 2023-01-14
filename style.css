@@ -54,7 +54,7 @@ body {
   }
 
     .gridBox { 
-        border: .1px solid rgba(201, 199, 199, 0.417);
+        border: .1px solid rgba(201, 199, 199, 0.191);
         box-sizing: border-box;
     }
 
