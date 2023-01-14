@@ -139,8 +139,8 @@ a {
 }
 
     a:hover { 
-        color: rgb(37, 133, 37);
-        font-weight: bolder;
+        color: rgb(61, 180, 61);
+       
     }
 
 span { 
@@ -156,7 +156,8 @@ button {
    
 }
 
-button:focus { 
+button#b-clear:active,
+.btnOn { 
     color: whitesmoke;
     background-color: black;
     border: 2px solid rgba(246, 235, 235, 0.938);

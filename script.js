@@ -28,26 +28,32 @@
     
 */
 
+
+// consts 
+const CANVAS_COLOR = 'rgba(246, 235, 235, 0.938)'
+
+// DOM elements 
 const canvas = document.querySelector('.canvas'); 
 
 const colorSelector = document.querySelector('#colorSelector');
-const gridSelector = document.querySelector(`#gridSelector`)
-    
+const gridSelector = document.querySelector(`#gridSelector`) 
     const gridText = document.querySelector('.g-text');
-    
-    gridSelector.onmousemove = (e) => slideChange(e.target.value);
-    // gridSelector.onchange = (e) => slideChange(e.target.value);
 
-    const btnDraw = document.querySelector('.b-draw');
-const btnErase = document.querySelector('.b-erase')
-const btnClear = document.querySelector('.b-clear');
+const btnDraw = document.querySelector('#b-draw');
+const btnErase = document.querySelector('#b-erase');
+    btnErase.classList.toggle('btnOn');
+const btnClear = document.querySelector('#b-clear');
 
+// function parameters 
 let brush = colorSelector.value;
+let lastGrid = gridSelector.value;
 let rowSelect = gridSelector.value;
 let colSelect = rowSelect;
 makeGrid(rowSelect, colSelect);
 
+// functions 
 function makeGrid(rows, cols) { 
+    
     let area = rows * cols; 
     let width = (100 / cols);
     let height = (100 / rows);
@@ -56,8 +62,11 @@ function makeGrid(rows, cols) {
         box.classList.add("gridBox");
         box.style['width'] = `${width}%`;
         box.style['height'] = `${height}%`;
+       
         canvas.appendChild(box);
     }
+
+    
 }
 
 function slideChange(value) { 
@@ -71,7 +80,40 @@ function slideChange(value) {
     makeGrid(rowSelect, colSelect);
 }
 
+function clearGrid() { 
+    const grid = document.querySelectorAll(".gridBox");
+
+    grid.forEach(box => { 
+        box.style['background-color'] = CANVAS_COLOR;
+    });
+}
+
+
+// event listeners 
+
+colorSelector.addEventListener("input", (e) => {
+    brush = e.target.value;
     
+});
 
+btnDraw.addEventListener("click", (e) => {
+    brush = colorSelector.value;
 
+    if (!btnDraw.className) {btnDraw.classList.toggle('btnOn');}
+    if (btnErase.className) {btnErase.classList.toggle('btnOn');}
+});
 
+btnErase.addEventListener("click", () => { 
+    brush = CANVAS_COLOR;
+
+    if (!btnErase.className) {btnErase.classList.toggle('btnOn');}
+    if (btnDraw.className) {btnDraw.classList.toggle('btnOn');}
+});
+
+btnClear.addEventListener("click", clearGrid);
+
+gridSelector.addEventListener('mousemove', (e) => {
+    if (e.target.value == lastGrid) return;
+    slideChange(e.target.value);
+    lastGrid = e.target.value;
+});
